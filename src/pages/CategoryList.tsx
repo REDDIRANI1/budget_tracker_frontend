@@ -12,13 +12,21 @@ export default function CategoryList() {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const res = await api.get("/categories/", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      setCategories(res.data);
+      try {
+        const res = await api.get("/categories/", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+
+        // Extract the array of results from paginated response
+        setCategories(res.data.results);
+      } catch (err) {
+        console.error("Failed to fetch categories:", err);
+        setCategories([]);
+      }
     };
+
     fetchCategories();
   }, []);
 
@@ -27,7 +35,9 @@ export default function CategoryList() {
       <h2 className="text-xl font-bold mb-4">Your Categories</h2>
       <ul className="space-y-2">
         {categories.map((cat) => (
-          <li key={cat.id} className="p-2 border rounded">{cat.name}</li>
+          <li key={cat.id} className="p-2 border rounded">
+            {cat.name}
+          </li>
         ))}
       </ul>
     </div>

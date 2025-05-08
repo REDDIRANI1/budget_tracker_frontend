@@ -20,7 +20,7 @@ const CategoryPage = () => {
       },
     })
       .then((res) => res.json())
-      .then(setCategories);
+      .then((data) => setCategories(data.results)); // ✅ Fix here
   };
 
   useEffect(() => {
