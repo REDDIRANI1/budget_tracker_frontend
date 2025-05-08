@@ -18,7 +18,7 @@ const EditTransaction = () => {
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/categories/", {
+    fetch("https://budget-tracker-backend-1-7iom.onrender.com/api/categories/", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -32,7 +32,7 @@ const EditTransaction = () => {
         }
       });
 
-    fetch(`http://127.0.0.1:8000/api/expenses/${id}/`, {
+    fetch(`https://budget-tracker-backend-1-7iom.onrender.com/api/expenses/${id}/`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -50,7 +50,7 @@ const EditTransaction = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    fetch(`http://127.0.0.1:8000/api/expenses/${id}/`, {
+    fetch(`https://budget-tracker-backend-1-7iom.onrender.com/api/expenses/${id}/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

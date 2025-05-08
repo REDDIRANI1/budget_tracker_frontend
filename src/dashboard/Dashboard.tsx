@@ -15,7 +15,7 @@ const Dashboard = () => {
   });
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/summary/", {
+    fetch("https://budget-tracker-backend-1-7iom.onrender.com/api/summary/", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

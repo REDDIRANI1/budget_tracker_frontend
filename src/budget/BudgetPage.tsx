@@ -11,7 +11,7 @@ const BudgetPage = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("http://127.0.0.1:8000/budget-summary/", {
+    fetch("https://budget-tracker-backend-1-7iom.onrender.com/budget-summary/", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {

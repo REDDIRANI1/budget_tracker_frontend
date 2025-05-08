@@ -14,7 +14,7 @@ const CategoryPage = () => {
   const token = localStorage.getItem("token");
 
   const fetchCategories = () => {
-    fetch("http://127.0.0.1:8000/api/categories/", {
+    fetch("https://budget-tracker-backend-1-7iom.onrender.com/api/categories/", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -28,7 +28,7 @@ const CategoryPage = () => {
   }, []);
 
   const handleAdd = () => {
-    fetch("http://127.0.0.1:8000/api/categories/", {
+    fetch("https://budget-tracker-backend-1-7iom.onrender.com/api/categories/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const CategoryPage = () => {
   };
 
   const handleEdit = (id: number) => {
-    fetch(`http://127.0.0.1:8000/api/categories/${id}/`, {
+    fetch(`https://budget-tracker-backend-1-7iom.onrender.com/api/categories/${id}/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -56,7 +56,7 @@ const CategoryPage = () => {
   };
 
   const handleDelete = (id: number) => {
-    fetch(`http://127.0.0.1:8000/api/categories/${id}/`, {
+    fetch(`https://budget-tracker-backend-1-7iom.onrender.com/api/categories/${id}/`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

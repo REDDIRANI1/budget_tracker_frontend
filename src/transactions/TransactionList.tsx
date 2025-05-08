@@ -33,7 +33,7 @@ const TransactionList = () => {
   }), [searchParams]);
 
   const fetchCategories = () => {
-    fetch("http://127.0.0.1:8000/api/categories/", {
+    fetch("https://budget-tracker-backend-1-7iom.onrender.com/api/categories/", {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((res) => res.json())
@@ -54,7 +54,7 @@ const TransactionList = () => {
     if (filters.date) params.append("date", filters.date);
     params.append("page", page.toString());
 
-    fetch(`http://127.0.0.1:8000/api/expenses/?${params.toString()}`, {
+    fetch(`https://budget-tracker-backend-1-7iom.onrender.com/api/expenses/?${params.toString()}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((res) => res.json())
@@ -82,7 +82,7 @@ const TransactionList = () => {
 
   const handleDelete = async (id: number) => {
     if (!window.confirm("Are you sure you want to delete this transaction?")) return;
-    const res = await fetch(`http://127.0.0.1:8000/api/expenses/${id}/`, {
+    const res = await fetch(`https://budget-tracker-backend-1-7iom.onrender.com/api/expenses/${id}/`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     });
